@@ -83,19 +83,19 @@ out_splines (FILE * file, spline_list_array_type shape, int height)
 
 
 int output_svg_writer(FILE* file, at_string name,
-		      int llx, int lly, int urx, int ury, 
+		      int llx, int lly, int urx, int ury,
 		      at_output_opts_type * opts,
 		      spline_list_array_type shape,
-		      at_msg_func msg_func, 
+		      at_msg_func msg_func,
 		      at_address msg_data)
 {
     int width = urx - llx;
     int height = ury - lly;
     fputs("<?xml version=\"1.0\" standalone=\"yes\"?>\n", file);
-    fprintf(file, "<svg width=\"%d\" height=\"%d\">\n", width, height);
+    fprintf(file, "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"%d\" height=\"%d\">\n", width, height);
 
     out_splines(file, shape, height);
     fputs("</svg>\n", file);
-    
+
     return 0;
 }
